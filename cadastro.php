@@ -1,12 +1,12 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 
-$connect = new PDO("mysql:host=localhost;dbname=id19500520_db", "id19500520_user", "Xitn^Gbvn3V9Kg<)");
+$connect = new PDO("https://freshmark.000webhostapp.com/;id20420990_leonardo1234","id20420990_leonardohenrique",">~2M/e*mXc>ie-Yx");
 $received_data = json_decode(file_get_contents("php://input"));
 $data = array();
 if ($received_data->action == 'fetchall') {
     $query = "
- SELECT * FROM fatec_alunos 
+ SELECT * FROM Professores 
  ORDER BY id DESC
  ";
     $statement = $connect->prepare($query);
@@ -18,14 +18,16 @@ if ($received_data->action == 'fetchall') {
 }
 if ($received_data->action == 'insert') {
     $data = array(
-        ':first_name' => $received_data->firstName,
-        ':last_name' => $received_data->lastName
+        ':nome' => $received_data->nome,
+        ':endereco' => $received_data->endereco,
+        ':curso' => $received_data->curso,
+        ':salario' => $received_data->salario
     );
 
     $query = "
- INSERT INTO fatec_alunos 
- (first_name, last_name) 
- VALUES (:first_name, :last_name)
+ INSERT INTO Professores 
+ (nome, endereco, curso, salario) 
+ VALUES (nome, endereco, curso, salario)
  ";
 
     $statement = $connect->prepare($query);
@@ -33,14 +35,14 @@ if ($received_data->action == 'insert') {
     $statement->execute($data);
 
     $output = array(
-        'message' => 'Aluno Adicionado'
+        'message' => 'Professor Adicionado'
     );
 
     echo json_encode($output);
 }
 if ($received_data->action == 'fetchSingle') {
     $query = "
- SELECT * FROM fatec_alunos 
+ SELECT * FROM Professores 
  WHERE id = '" . $received_data->id . "'
  ";
 

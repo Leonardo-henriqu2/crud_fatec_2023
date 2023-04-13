@@ -1,9 +1,9 @@
 <?php
 
-$host = "localhost"; // nome do servidor MySQL
-$user = "id19500520_user"; // usuário do MySQL
-$pass = "Xitn^Gbvn3V9Kg<)"; // senha do MySQL
-$dbname = "id19500520_db"; // nome do banco de dados
+$host = "https://freshmark.000webhostapp.com/"; // nome do servidor MySQL
+$user = "id20420990_leonardohenrique"; // usuário do MySQL
+$pass = ">~2M/e*mXc>ie-Yx"; // senha do MySQL
+$dbname = "id20420990_leonardo1234"; // nome do banco de dados
 
 // Conexão com o banco de dados MySQL
 $conn = mysqli_connect($host, $user, $pass, $dbname);
